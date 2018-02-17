@@ -40,7 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Airports\IAirportsRepository.cs" />
+    <Compile Include="Base\IBaseRepository.cs" />
+    <Compile Include="Flights\IFlightsRepository.cs" />
+    <Compile Include="Mappers\IDataAutoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AgioGlobal.Server.Data.Entities\AgioGlobal.Server.Data.Entities.csproj">
+      <Project>{4516C432-926E-4650-A29A-3A5D028573C1}</Project>
+      <Name>AgioGlobal.Server.Data.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

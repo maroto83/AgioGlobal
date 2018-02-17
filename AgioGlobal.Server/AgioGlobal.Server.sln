@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.Data.Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.Data.Repositories", "04.Data\AgioGlobal.Server.Data.Repositories\AgioGlobal.Server.Data.Repositories.csproj", "{2B8780AF-F033-4B4C-AC40-13114D1C4BAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.Data.IoC", "04.Data\AgioGlobal.Server.Data.IoC\AgioGlobal.Server.Data.IoC.csproj", "{E73BD10B-C079-4B46-8B98-AE365E8CCDDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,10 @@ Global
 		{2B8780AF-F033-4B4C-AC40-13114D1C4BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B8780AF-F033-4B4C-AC40-13114D1C4BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B8780AF-F033-4B4C-AC40-13114D1C4BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E73BD10B-C079-4B46-8B98-AE365E8CCDDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E73BD10B-C079-4B46-8B98-AE365E8CCDDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E73BD10B-C079-4B46-8B98-AE365E8CCDDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E73BD10B-C079-4B46-8B98-AE365E8CCDDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,6 +133,7 @@ Global
 		{BABCE4C3-4BBE-4057-8E09-3A20A7F38E9A} = {59B499B6-9924-49B2-B47E-2CA2AB34587D}
 		{8DD97157-1AF2-4E8D-B34A-2C33661C677B} = {59B499B6-9924-49B2-B47E-2CA2AB34587D}
 		{2B8780AF-F033-4B4C-AC40-13114D1C4BAB} = {59B499B6-9924-49B2-B47E-2CA2AB34587D}
+		{E73BD10B-C079-4B46-8B98-AE365E8CCDDE} = {59B499B6-9924-49B2-B47E-2CA2AB34587D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0ED27E93-9804-4EB2-8110-468EC7E0AA06}

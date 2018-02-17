@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2B8780AF-F033-4B4C-AC40-13114D1C4BAB}</ProjectGuid>
+    <ProjectGuid>{E73BD10B-C079-4B46-8B98-AE365E8CCDDE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AgioGlobal.Server.Data.Repositories</RootNamespace>
-    <AssemblyName>AgioGlobal.Server.Data.Repositories</AssemblyName>
+    <RootNamespace>AgioGlobal.Server.Data.IoC</RootNamespace>
+    <AssemblyName>AgioGlobal.Server.Data.IoC</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,11 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,32 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Airports\PredicateBuilders\AirportsPredicateBuilder.cs" />
-    <Compile Include="Airports\Repositories\AirportsRepository.cs" />
-    <Compile Include="Base\BaseRepository.cs" />
-    <Compile Include="Flights\PredicateBuilders\FlightsPredicateBuilder.cs" />
-    <Compile Include="Flights\Repositories\FlightsRepository.cs" />
-    <Compile Include="Helpers\PredicateBuilder.cs" />
+    <Compile Include="Containers\DataIoCContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AgioGlobal.Server.Data.DAL\AgioGlobal.Server.Data.DAL.csproj">
-      <Project>{B317BD25-9065-46B5-9DBF-9F2F25C43A4A}</Project>
-      <Name>AgioGlobal.Server.Data.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AgioGlobal.Server.Data.Entities\AgioGlobal.Server.Data.Entities.csproj">
-      <Project>{4516C432-926E-4650-A29A-3A5D028573C1}</Project>
-      <Name>AgioGlobal.Server.Data.Entities</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\AgioGlobal.Server.Data.Interfaces\AgioGlobal.Server.Data.Interfaces.csproj">
       <Project>{E4D0DEB6-8C87-4104-8517-70BA45E0946B}</Project>
       <Name>AgioGlobal.Server.Data.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AgioGlobal.Server.Data.Models\AgioGlobal.Server.Data.Models.csproj">
-      <Project>{8DD97157-1AF2-4E8D-B34A-2C33661C677B}</Project>
-      <Name>AgioGlobal.Server.Data.Models</Name>
+    <ProjectReference Include="..\AgioGlobal.Server.Data.Mappers\AgioGlobal.Server.Data.Mappers.csproj">
+      <Project>{BABCE4C3-4BBE-4057-8E09-3A20A7F38E9A}</Project>
+      <Name>AgioGlobal.Server.Data.Mappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgioGlobal.Server.Data.Repositories\AgioGlobal.Server.Data.Repositories.csproj">
+      <Project>{2B8780AF-F033-4B4C-AC40-13114D1C4BAB}</Project>
+      <Name>AgioGlobal.Server.Data.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
