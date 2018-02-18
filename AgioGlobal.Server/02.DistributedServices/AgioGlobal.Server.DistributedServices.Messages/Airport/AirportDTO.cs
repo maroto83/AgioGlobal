@@ -1,4 +1,6 @@
-﻿namespace AgioGlobal.Server.DistributedServices.Messages.Airport
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AgioGlobal.Server.DistributedServices.Messages.Airport
 {
     public class AirportDTO
     {
@@ -10,6 +12,7 @@
         /// <summary>
         /// Airport name
         /// </summary> 
+        [Required]
         public string Name { get; set; }
 
         /// <summary>

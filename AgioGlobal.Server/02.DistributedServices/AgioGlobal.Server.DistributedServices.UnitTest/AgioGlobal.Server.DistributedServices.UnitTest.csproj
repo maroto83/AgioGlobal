@@ -38,22 +38,76 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Airports\AirportController.cs" />
+    <Compile Include="Base\BaseUnitTest.cs" />
+    <Compile Include="Flights\FlightController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestEnvironment\Contants\TestEnvironmentConstant.cs" />
+    <Compile Include="TestEnvironment\Managers\TestEnvironmentManager.cs" />
+    <Compile Include="TestEnvironment\Mappers\TestEnvironmentMapper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\03.Domain\AgioGlobal.Server.Domain.BO\AgioGlobal.Server.Domain.BO.csproj">
+      <Project>{82B2C4F5-9282-4AD6-9EB5-495CA7F30426}</Project>
+      <Name>AgioGlobal.Server.Domain.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03.Domain\AgioGlobal.Server.Domain.Interfaces\AgioGlobal.Server.Domain.Interfaces.csproj">
+      <Project>{8903E266-ED26-4B5D-8560-46069E9D9088}</Project>
+      <Name>AgioGlobal.Server.Domain.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03.Domain\AgioGlobal.Server.Domain.IoC\AgioGlobal.Server.Domain.IoC.csproj">
+      <Project>{C2833794-59B3-493A-BB47-F088C9C370F1}</Project>
+      <Name>AgioGlobal.Server.Domain.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgioGlobal.Server.DistributedServices.Mappers\AgioGlobal.Server.DistributedServices.Mappers.csproj">
+      <Project>{AD8E6E60-6C7E-4ADC-B214-B702E6989292}</Project>
+      <Name>AgioGlobal.Server.DistributedServices.Mappers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgioGlobal.Server.DistributedServices.Messages\AgioGlobal.Server.DistributedServices.Messages.csproj">
+      <Project>{6823B272-053F-4C0F-8A27-BA9022C758CD}</Project>
+      <Name>AgioGlobal.Server.DistributedServices.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgioGlobal.Server.DistributedServices.WebApi\AgioGlobal.Server.DistributedServices.WebApi.csproj">
+      <Project>{3E090DA3-A634-4820-B137-CA21D361CD99}</Project>
+      <Name>AgioGlobal.Server.DistributedServices.WebApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

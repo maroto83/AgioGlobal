@@ -1,4 +1,6 @@
-﻿namespace AgioGlobal.Server.DistributedServices.Messages.Flights
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AgioGlobal.Server.DistributedServices.Messages.Flights
 {
     public class FlightDTO
     {
@@ -10,6 +12,7 @@
         /// <summary>
         /// Flight name
         /// </summary> 
+        [Required]
         public string Name { get; set; }
     }
 }

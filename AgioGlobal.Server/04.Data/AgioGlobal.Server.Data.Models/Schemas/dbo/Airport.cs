@@ -16,7 +16,7 @@ namespace AgioGlobal.Server.Data.Models.Schemas.dbo
         /// <summary>
         /// Airport name
         /// </summary>
-        [MaxLength(100)]
+        [MaxLength(100), Required]
         public string Name { get; set; }
 
         /// <summary>
