@@ -40,7 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\IBaseService.cs" />
+    <Compile Include="Airport\IAirportService.cs" />
+    <Compile Include="Flights\IFlightService.cs" />
+    <Compile Include="Mappers\IDomainAutoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AgioGlobal.Server.Domain.BO\AgioGlobal.Server.Domain.BO.csproj">
+      <Project>{82B2C4F5-9282-4AD6-9EB5-495CA7F30426}</Project>
+      <Name>AgioGlobal.Server.Domain.BO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

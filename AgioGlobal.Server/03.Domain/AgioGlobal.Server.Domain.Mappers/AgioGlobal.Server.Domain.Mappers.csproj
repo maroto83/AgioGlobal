@@ -30,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainAutoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\04.Data\AgioGlobal.Server.Data.Entities\AgioGlobal.Server.Data.Entities.csproj">
+      <Project>{4516C432-926E-4650-A29A-3A5D028573C1}</Project>
+      <Name>AgioGlobal.Server.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgioGlobal.Server.Domain.BO\AgioGlobal.Server.Domain.BO.csproj">
+      <Project>{82B2C4F5-9282-4AD6-9EB5-495CA7F30426}</Project>
+      <Name>AgioGlobal.Server.Domain.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgioGlobal.Server.Domain.Interfaces\AgioGlobal.Server.Domain.Interfaces.csproj">
+      <Project>{8903E266-ED26-4B5D-8560-46069E9D9088}</Project>
+      <Name>AgioGlobal.Server.Domain.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
