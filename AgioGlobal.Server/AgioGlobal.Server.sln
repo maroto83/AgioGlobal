@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.DistributedServices", "02.DistributedServices", "{FF6A7425-5373-4660-81CA-A06C59EFB62B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.DistributedServices.WebApi", "02.DistributedServices\AgioGlobal.Server.DistributedServices.WebApi\AgioGlobal.Server.DistributedServices.WebApi.csproj", "{7061435E-815B-4E0B-B90D-C0A0C06E23B4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.DistributedServices.UnitTest", "02.DistributedServices\AgioGlobal.Server.DistributedServices.UnitTest\AgioGlobal.Server.DistributedServices.UnitTest.csproj", "{11F59A7E-94A3-4981-95F0-BC09CFAA7EE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Domain", "03.Domain", "{3BF78C90-73E4-431D-852D-8906DF63F15D}"
@@ -47,16 +45,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.Distribut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.DistributedServices.Mappers", "02.DistributedServices\AgioGlobal.Server.DistributedServices.Mappers\AgioGlobal.Server.DistributedServices.Mappers.csproj", "{AD8E6E60-6C7E-4ADC-B214-B702E6989292}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.DistributedServices.WebApi", "02.DistributedServices\AgioGlobal.Server.DistributedServices.WebApi\AgioGlobal.Server.DistributedServices.WebApi.csproj", "{3E090DA3-A634-4820-B137-CA21D361CD99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.Domain.IoC", "03.Domain\AgioGlobal.Server.Domain.IoC\AgioGlobal.Server.Domain.IoC.csproj", "{C2833794-59B3-493A-BB47-F088C9C370F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.Infrastructure.Helpers", "10.Infrastructure\AgioGlobal.Server.Infrastructure.Helpers\AgioGlobal.Server.Infrastructure.Helpers.csproj", "{56CE66B8-D813-4FFB-B0BA-E90A7A4B692C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgioGlobal.Server.Infrastructure.I18N", "10.Infrastructure\AgioGlobal.Server.Infrastructure.I18N\AgioGlobal.Server.Infrastructure.I18N.csproj", "{8A9595F4-99EB-46B0-BEF3-563B6E80B604}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7061435E-815B-4E0B-B90D-C0A0C06E23B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7061435E-815B-4E0B-B90D-C0A0C06E23B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7061435E-815B-4E0B-B90D-C0A0C06E23B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7061435E-815B-4E0B-B90D-C0A0C06E23B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11F59A7E-94A3-4981-95F0-BC09CFAA7EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11F59A7E-94A3-4981-95F0-BC09CFAA7EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11F59A7E-94A3-4981-95F0-BC09CFAA7EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -125,12 +127,27 @@ Global
 		{AD8E6E60-6C7E-4ADC-B214-B702E6989292}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD8E6E60-6C7E-4ADC-B214-B702E6989292}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD8E6E60-6C7E-4ADC-B214-B702E6989292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E090DA3-A634-4820-B137-CA21D361CD99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E090DA3-A634-4820-B137-CA21D361CD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E090DA3-A634-4820-B137-CA21D361CD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E090DA3-A634-4820-B137-CA21D361CD99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2833794-59B3-493A-BB47-F088C9C370F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2833794-59B3-493A-BB47-F088C9C370F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2833794-59B3-493A-BB47-F088C9C370F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2833794-59B3-493A-BB47-F088C9C370F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56CE66B8-D813-4FFB-B0BA-E90A7A4B692C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56CE66B8-D813-4FFB-B0BA-E90A7A4B692C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56CE66B8-D813-4FFB-B0BA-E90A7A4B692C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56CE66B8-D813-4FFB-B0BA-E90A7A4B692C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A9595F4-99EB-46B0-BEF3-563B6E80B604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A9595F4-99EB-46B0-BEF3-563B6E80B604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A9595F4-99EB-46B0-BEF3-563B6E80B604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A9595F4-99EB-46B0-BEF3-563B6E80B604}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7061435E-815B-4E0B-B90D-C0A0C06E23B4} = {FF6A7425-5373-4660-81CA-A06C59EFB62B}
 		{11F59A7E-94A3-4981-95F0-BC09CFAA7EE8} = {FF6A7425-5373-4660-81CA-A06C59EFB62B}
 		{E87349B0-FC02-4672-B187-FE3FDF72F637} = {3BF78C90-73E4-431D-852D-8906DF63F15D}
 		{6E4392F1-8185-42F9-AEA6-F5B3D2D653C7} = {59B499B6-9924-49B2-B47E-2CA2AB34587D}
@@ -148,6 +165,10 @@ Global
 		{E73BD10B-C079-4B46-8B98-AE365E8CCDDE} = {59B499B6-9924-49B2-B47E-2CA2AB34587D}
 		{A769C970-8313-49BB-94DA-07564B839A26} = {FF6A7425-5373-4660-81CA-A06C59EFB62B}
 		{AD8E6E60-6C7E-4ADC-B214-B702E6989292} = {FF6A7425-5373-4660-81CA-A06C59EFB62B}
+		{3E090DA3-A634-4820-B137-CA21D361CD99} = {FF6A7425-5373-4660-81CA-A06C59EFB62B}
+		{C2833794-59B3-493A-BB47-F088C9C370F1} = {3BF78C90-73E4-431D-852D-8906DF63F15D}
+		{56CE66B8-D813-4FFB-B0BA-E90A7A4B692C} = {FD0A6F40-7631-45BD-88C0-F871F940B50E}
+		{8A9595F4-99EB-46B0-BEF3-563B6E80B604} = {FD0A6F40-7631-45BD-88C0-F871F940B50E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0ED27E93-9804-4EB2-8110-468EC7E0AA06}
