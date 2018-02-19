@@ -16,6 +16,16 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// The departure airport
+        /// </summary>
+        public Airport DepartureAirport { get; set; }
+
+        /// <summary>
+        /// The Destination airport
+        /// </summary>
+        public Airport DestinationAirport { get; set; }
+
+        /// <summary>
         /// Get the key of the register
         /// </summary>
         /// <returns>The key of the register</returns>

@@ -22,12 +22,12 @@ namespace AgioGlobal.Server.Data.Models.Schemas.dbo
         /// <summary>
         /// Latitude coordinate
         /// </summary>
-        public decimal Latitude { get; set; }
+        public float Latitude { get; set; }
 
         /// <summary>
         /// Longitude coordinate
         /// </summary>
-        public decimal Longitude { get; set; }
+        public float Longitude { get; set; }
 
         /// <summary>
         /// Get the key of the register

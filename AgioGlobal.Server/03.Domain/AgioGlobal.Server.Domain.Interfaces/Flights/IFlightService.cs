@@ -1,4 +1,5 @@
-﻿using AgioGlobal.Server.Domain.BO.Flights;
+﻿using System.Collections.Generic;
+using AgioGlobal.Server.Domain.BO.Flights;
 using AgioGlobal.Server.Domain.Interfaces.Base;
 
 namespace AgioGlobal.Server.Domain.Interfaces.Flights
@@ -7,6 +8,8 @@ namespace AgioGlobal.Server.Domain.Interfaces.Flights
     {
         void CreateFlight(FlightDTO request);
         FlightDTO GetFlight(FlightDTO flightDTO);
+        List<FlightDTO> GetFlightList();
         void DeleteFlight(FlightDTO flightDTO);
+        void UpdateFlight(FlightDTO request);
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace AgioGlobal.Server.Domain.BO.Flights
+﻿using AgioGlobal.Server.Domain.BO.Airport;
+
+namespace AgioGlobal.Server.Domain.BO.Flights
 {
     public class FlightDTO
     {
@@ -11,5 +13,15 @@
         /// Flight name
         /// </summary> 
         public string Name { get; set; }
+
+        /// <summary>
+        /// The departure airport
+        /// </summary>
+        public AirportDTO DepartureAirport { get; set; }
+
+        /// <summary>
+        /// The Destination airport
+        /// </summary>
+        public AirportDTO DestinationAirport { get; set; }
     }
 }

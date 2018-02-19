@@ -94,6 +94,10 @@
       <Project>{C2833794-59B3-493A-BB47-F088C9C370F1}</Project>
       <Name>AgioGlobal.Server.Domain.IoC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\10.Infrastructure\AgioGlobal.Server.Infrastructure.Constants\AgioGlobal.Server.Infrastructure.Constants.csproj">
+      <Project>{e4c44557-e4f3-4166-9eb4-7d7a095fec78}</Project>
+      <Name>AgioGlobal.Server.Infrastructure.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AgioGlobal.Server.DistributedServices.Mappers\AgioGlobal.Server.DistributedServices.Mappers.csproj">
       <Project>{AD8E6E60-6C7E-4ADC-B214-B702E6989292}</Project>
       <Name>AgioGlobal.Server.DistributedServices.Mappers</Name>

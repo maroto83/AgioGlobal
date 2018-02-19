@@ -22,9 +22,12 @@ namespace AgioGlobal.Server.DistributedServices.UnitTest.Flights
             {
                 return flightDTO ?? (flightDTO = DistributedServicesAutoMapper.Map<FlightDTO>(TestEnvironmentMapper.BuildFlightDTOFromData(TestEnvironmentConstant.TestFlightNameForCreateFlight)));
             }
+            set { flightDTO = value; }
         }
 
         #endregion
+
+        #region Action Create
 
         [TestMethod]
         public void CreateFlight_WhenDataIsCorrect_CheckCreateOneFlight()
@@ -63,6 +66,51 @@ namespace AgioGlobal.Server.DistributedServices.UnitTest.Flights
             Assert.AreEqual(result.Result.GetType().Name, "InvalidModelStateResult");
 
         }
+
+        #endregion
+
+        #region Action Update
+
+        [TestMethod]
+        public void UpdateFlight_WhenDataIsCorrect_CheckResult()
+        {
+            TestEnvironmentManager.DeleteFlightTest(FlightService, FlightDTO.Name);
+     
+            if (FlightController.CreateFlight(FlightDTO).Result.GetType().Name.Equals("OkNegotiatedContentResult`1"))
+            {
+                FlightDTO = DistributedServicesAutoMapper.Map<FlightDTO>(FlightService.GetFlight(new Domain.BO.Flights.FlightDTO {Name = FlightDTO.Name}));
+
+                FlightDTO.Name += "_Updated";
+                var response = FlightController.UpdateFlight(FlightDTO);
+                Assert.IsNotNull(response);
+
+                TestEnvironmentManager.DeleteFlightTest(FlightService, FlightDTO.Name);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        #endregion
+
+        #region Action GetFlightsList
+
+        [TestMethod]
+        public void GetFlightsList_WhenDataIsCorrect_CheckResult()
+        {
+            if (FlightController.CreateFlight(FlightDTO).Result.GetType().Name.Equals("OkNegotiatedContentResult`1"))
+            {
+                var response = FlightController.GetFlightsList();
+                Assert.IsNotNull(response);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        #endregion
     }
 
 }

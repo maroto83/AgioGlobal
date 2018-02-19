@@ -20,6 +20,16 @@ namespace AgioGlobal.Server.Data.Models.Schemas.dbo
         public string Name { get; set; }
 
         /// <summary>
+        /// The departure airport
+        /// </summary>
+        public virtual Airport DepartureAirport { get; set; }
+
+        /// <summary>
+        /// The Destination airport
+        /// </summary>
+        public virtual Airport DestinationAirport { get; set; }
+
+        /// <summary>
         /// Get the key of the register
         /// </summary>
         /// <returns>The key of the register</returns>

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using AgioGlobal.Server.Data.Entities;
 using AgioGlobal.Server.Data.Interfaces.Flights;
 using AgioGlobal.Server.Data.IoC.Containers;
@@ -45,7 +46,7 @@ namespace AgioGlobal.Server.Domain.Services.Flights.Services
         public void CreateFlight(FlightDTO request)
         {
             var flightEntity = DomainAutoMapper.Map<Flight>(request);
-            FlightRepository.UpSertFlight(flightEntity);
+            FlightRepository.CreateFlight(flightEntity);
         }
 
         public FlightDTO GetFlight(FlightDTO request)
@@ -55,10 +56,22 @@ namespace AgioGlobal.Server.Domain.Services.Flights.Services
             return DomainAutoMapper.Map<FlightDTO>(flight);
         }
 
+        public List<FlightDTO> GetFlightList()
+        {
+            var flightsList = FlightRepository.GetFlightList();
+            return DomainAutoMapper.Map<List<FlightDTO>>(flightsList);
+        }
+
         public void DeleteFlight(FlightDTO flightDTO)
         {
             var flightEntity = DomainAutoMapper.Map<Flight>(flightDTO);
             FlightRepository.DeleteFlight(flightEntity);
+        }
+
+        public void UpdateFlight(FlightDTO request)
+        {
+            var flightEntity = DomainAutoMapper.Map<Flight>(request);
+            FlightRepository.UpdateFlight(flightEntity);
         }
     }
 }

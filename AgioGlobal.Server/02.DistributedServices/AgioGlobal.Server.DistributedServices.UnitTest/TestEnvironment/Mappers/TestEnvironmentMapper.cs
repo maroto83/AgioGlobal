@@ -10,7 +10,9 @@ namespace AgioGlobal.Server.DistributedServices.UnitTest.TestEnvironment.Mappers
             return new FlightDTO()
             {
                 FlightId = 1,
-                Name = testFlightNameForCreateFlight
+                Name = testFlightNameForCreateFlight,
+                DestinationAirport = new AirportDTO{Name = Infrastructure.Constants.Constants.TestAirportName1},
+                DepartureAirport = new AirportDTO { Name = Infrastructure.Constants.Constants.TestAirportName2 }
             };
         }
 

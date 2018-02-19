@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AgioGlobal.Server.DistributedServices.Messages.Airport;
 
 namespace AgioGlobal.Server.DistributedServices.Messages.Flights
 {
@@ -14,5 +15,15 @@ namespace AgioGlobal.Server.DistributedServices.Messages.Flights
         /// </summary> 
         [Required]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The departure airport
+        /// </summary>
+        public AirportDTO DepartureAirport { get; set; }
+
+        /// <summary>
+        /// The Destination airport
+        /// </summary>
+        public AirportDTO DestinationAirport { get; set; }
     }
 }
