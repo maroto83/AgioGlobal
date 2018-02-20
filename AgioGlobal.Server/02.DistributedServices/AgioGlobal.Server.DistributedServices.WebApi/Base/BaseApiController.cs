@@ -25,6 +25,12 @@ namespace AgioGlobal.Server.DistributedServices.WebApi.Base
             DistributedServicesAutoMapper = distributedServicesAutoMapper;
         }
 
+        public BaseApiController()
+        {
+            DomainIoCContainer = new DomainIoCContainer();
+            DistributedServicesAutoMapper = new DistributedServicesAutoMapper();
+        }
+
         #endregion
     }
 

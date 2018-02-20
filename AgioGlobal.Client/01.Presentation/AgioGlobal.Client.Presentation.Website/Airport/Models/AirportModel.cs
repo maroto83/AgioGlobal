@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AgioGlobal.Server.DistributedServices.Messages.Airport
+namespace AgioGlobal.Client.Presentation.Website.Airport.Models
 {
-    public class AirportDTO
+    public class AirportModel
     {
         /// <summary>
         /// Flighy id
@@ -18,11 +18,13 @@ namespace AgioGlobal.Server.DistributedServices.Messages.Airport
         /// <summary>
         /// Latitude coordinate
         /// </summary>
-        public float Latitude { get; set; }
+        [Required]
+        public decimal Latitude { get; set; }
 
         /// <summary>
         /// Longitude coordinate
         /// </summary>
-        public float Longitude { get; set; }
+        [Required]
+        public decimal Longitude { get; set; }
     }
 }

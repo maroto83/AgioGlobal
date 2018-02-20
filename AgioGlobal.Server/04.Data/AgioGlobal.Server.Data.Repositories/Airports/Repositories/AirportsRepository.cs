@@ -60,10 +60,39 @@ namespace AgioGlobal.Server.Data.Repositories.Airports.Repositories
         }
 
         /// <summary>
-        /// Update or insert in a airport
+        /// Get the full airports list 
+        /// </summary>
+        /// <returns>Return the full airports List with the data </returns>
+        public List<Airport> GetAirportList()
+        {
+            var airportsEntityList = new List<Airport>();
+
+            try
+            {
+                //TraceManager.StartMethodTrace(parameters: "airportEntity: " + JsonConvert.SerializeObject(airportEntity));
+
+                // Build the filters
+
+                var airports = this.DatabaseContext.Airport;
+
+                if (airports.Any())
+                {
+                    airportsEntityList = DataAutoMapper.Map<List<Airport>>(airports.ToList());
+                }
+
+                return airportsEntityList;
+            }
+            finally
+            {
+                //TraceManager.FinishMethodTrace(output: "airportsEntityList: " + JsonConvert.SerializeObject(airportsEntityList));
+            }
+        }
+
+        /// <summary>
+        /// Create an airport
         /// </summary>
         /// <param name="airportEntity">entity with the info</param>
-        public void UpSertAirport(Airport airportEntity)
+        public void CreateAirport(Airport airportEntity)
         {
             try
             {
@@ -74,6 +103,34 @@ namespace AgioGlobal.Server.Data.Repositories.Airports.Repositories
 
                 DatabaseContext.Airport.AddOrUpdate(airport);
                 DatabaseContext.SaveChanges();
+            }
+            finally
+            {
+                //TraceManager.FinishMethodTrace();
+            }
+        }
+
+        /// <summary>
+        /// Update an airport
+        /// </summary>
+        /// <param name="airportEntity">entity with the info</param>
+        public void UpdateAirport(Airport airportEntity)
+        {
+            try
+            {
+                //TraceManager.StartMethodTrace(parameters: "airportEntity: " + JsonConvert.SerializeObject(airportEntity));
+
+                var airportToUpdate = DatabaseContext.Airport.FirstOrDefault(airport => airport.AirportId.Equals(airportEntity.AirportId));
+                //TraceManager.ObjectDataTrace("airport", JsonConvert.SerializeObject(airport));                              
+
+                if (airportToUpdate != null)
+                {
+                    airportToUpdate.Name = airportEntity.Name;
+                    airportToUpdate.Longitude = airportEntity.Longitude;
+                    airportToUpdate.Latitude = airportEntity.Latitude;
+                    DatabaseContext.Airport.AddOrUpdate(airportToUpdate);
+                    DatabaseContext.SaveChanges();
+                }
             }
             finally
             {

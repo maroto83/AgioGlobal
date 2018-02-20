@@ -14,10 +14,22 @@ namespace AgioGlobal.Server.Data.Interfaces.Airports
         List<Airport> GetAirports(Airport airportEntity);
 
         /// <summary>
-        /// Update or insert a airport
+        /// Get the full airports list 
+        /// </summary>
+        /// <returns>Return the full flights List with the data </returns>
+        List<Airport> GetAirportList();
+
+        /// <summary>
+        /// Create a airport
         /// </summary>
         /// <param name="airportEntity">entity with the info</param>
-        void UpSertAirport(Airport airportEntity);
+        void CreateAirport(Airport airportEntity);
+
+        /// <summary>
+        /// Update an airport
+        /// </summary>
+        /// <param name="airportEntity">entity with the info</param>
+        void UpdateAirport(Airport airportEntity);
 
         /// <summary>
         /// Delete a airport

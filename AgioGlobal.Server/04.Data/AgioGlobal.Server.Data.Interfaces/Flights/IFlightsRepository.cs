@@ -20,16 +20,21 @@ namespace AgioGlobal.Server.Data.Interfaces.Flights
         List<Flight> GetFlightList();
 
         /// <summary>
-        /// Update or insert a flight
+        /// Create a flight
         /// </summary>
         /// <param name="flightEntity">entity with the info</param>
         void CreateFlight(Flight flightEntity);
+
+        /// <summary>
+        /// Update a flight
+        /// </summary>
+        /// <param name="flightEntity">entity with the info</param>
+        void UpdateFlight(Flight flightEntity);
 
         /// <summary>
         /// Delete a flight
         /// </summary>
         /// <param name="flightEntity">entity with the info</param>
         void DeleteFlight(Flight flightEntity);
-        void UpdateFlight(Flight flightEntity);
     }
 }
