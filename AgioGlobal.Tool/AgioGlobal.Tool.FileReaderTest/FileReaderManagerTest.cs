@@ -1,5 +1,6 @@
 ﻿using System;
 using AgioGlobal.Tool.FileReader;
+using AgioGlobal.Tool.FileReader.Helpers;
 using AgioGlobal.Tool.FileReader.Managers;
 using AgioGlobal.Tool.FileReaderTest.TestEnvironment.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -32,11 +33,18 @@ namespace AgioGlobal.Tool.FileReaderTest
         #region Test for XML File
 
         [TestMethod]
-        public void ReadXMLFile_WhenExistFile_CheckResultOk()
+        public void ReadXMLFile_WhenExistFileAndRolIsAdmin_CheckResultOk()
         {
-            var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.XMLFilePath);
+            var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.XMLFilePath, rolType: FileReaderHelper.RolType.Admin);
 
             Assert.AreNotEqual(fileContent, String.Empty);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void ReadXMLFile_WhenExistFileAndRolIsNoAdmin_CheckException()
+        {
+            FileReaderManager.ReadFile(ConfigurationHelper.XMLFilePath);
         }
 
         [TestMethod]

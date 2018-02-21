@@ -11,18 +11,21 @@ namespace AgioGlobal.Tool.FileReader.Managers
         public static string FileContent { get; set; }
         public static string FilePath { get; set; }
         public static string FileExtension => Path.GetExtension(FilePath);
+        public static FileReaderHelper.RolType RolType { get; set; }
 
         #endregion
-        
+
         /// <summary>  
         ///  Read text file or XML file
         /// </summary>  
         /// <param name="filePath">path of the filename</param>
         /// <param name="isEncrypted">Set if the file is encrypted or not. By default the file is not encrypted</param>
+        /// <param name="rolType">Rol type: Admin or No Admin. By default is No Admin</param>
         /// <returns>If exist the file, return a string with the file content. In otherwise return an empty string</returns>  
-        public static string ReadFile(string filePath, bool isEncrypted = false)
+        public static string ReadFile(string filePath, bool isEncrypted = false, FileReaderHelper.RolType rolType = FileReaderHelper.RolType.NoAdmin)
         {
             FilePath = filePath;
+            RolType = rolType;
             FileContent = string.Empty;
             try
             {
@@ -42,7 +45,7 @@ namespace AgioGlobal.Tool.FileReader.Managers
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return FileContent;
+                throw e;
             }
         }
 
@@ -71,7 +74,15 @@ namespace AgioGlobal.Tool.FileReader.Managers
                         break;
                     // Read a XML file
                     case FileReaderHelper.XMLExtension:
-                        ReadXMLFile();
+                        // Only the Admin can read the XML file
+                        if (RolType.Equals(FileReaderHelper.RolType.Admin))
+                        {
+                            ReadXMLFile();
+                        }
+                        else
+                        {
+                            throw new Exception(string.Format(FileReaderHelper.NoAdminErrorMessage, FilePath));
+                        }
                         break;
                     case FileReaderHelper.EncryptedExtension:
                         ReadEncryptedFile();
