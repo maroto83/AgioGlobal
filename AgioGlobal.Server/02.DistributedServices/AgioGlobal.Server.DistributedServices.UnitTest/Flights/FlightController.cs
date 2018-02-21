@@ -81,6 +81,10 @@ namespace AgioGlobal.Server.DistributedServices.UnitTest.Flights
                 FlightDTO = DistributedServicesAutoMapper.Map<FlightDTO>(FlightService.GetFlight(new Domain.BO.Flights.FlightDTO {Name = FlightDTO.Name}));
 
                 FlightDTO.Name += "_Updated";
+                FlightDTO.DepartureAirport.AirportId = 17;
+                FlightDTO.DepartureAirport.Name = "Málaga (AGP)";
+                FlightDTO.DestinationAirport.AirportId = 18;
+                FlightDTO.DestinationAirport.Name = "Sevilla (SEV)";
                 var response = FlightController.UpdateFlight(FlightDTO);
                 Assert.IsNotNull(response);
 

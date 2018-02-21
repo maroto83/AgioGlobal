@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Flight\Controllers\FlightController.cs" />
+    <Compile Include="Flight\Models\FlightViewModel.cs" />
     <Compile Include="Flight\Models\FlightModel.cs" />
     <Compile Include="Airport\Controllers\AirportController.cs" />
     <Compile Include="Airport\Models\AirportModel.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\MyHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -156,6 +158,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Airport\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Flight\Delete.cshtml" />
+    <Content Include="Views\Flight\Details.cshtml" />
+    <Content Include="Views\Flight\Edit.cshtml" />
+    <Content Include="Views\Flight\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,15 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
+using System.Web.Mvc;
 using AgioGlobal.Client.Presentation.Website.Airport.Models;
 
 namespace AgioGlobal.Client.Presentation.Website.Flight.Models
 {
-    public class FlightModel
+    public class FlightViewModel
     {
-        /// <summary>
-        /// Flighy id
-        /// </summary>        
-        public int FlightId { get; set; }
-
         /// <summary>
         /// Flight name
         /// </summary> 
@@ -19,11 +17,15 @@ namespace AgioGlobal.Client.Presentation.Website.Flight.Models
         /// <summary>
         /// The departure airport
         /// </summary>
-        public AirportModel DepartureAirport { get; set; }
+        [Required]
+        public int DepartureAirportId { get; set; }
 
         /// <summary>
         /// The Destination airport
         /// </summary>
-        public AirportModel DestinationAirport { get; set; }
+        [Required]
+        public int DestinationAirportId { get; set; }
+     
+        public List<SelectListItem> AirportsList { get; set; }
     }
 }

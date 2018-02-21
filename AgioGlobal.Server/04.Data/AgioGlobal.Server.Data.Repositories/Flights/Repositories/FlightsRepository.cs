@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using AgioGlobal.Server.Data.DAL;
 
 namespace AgioGlobal.Server.Data.Repositories.Flights.Repositories
 {
@@ -123,7 +124,7 @@ namespace AgioGlobal.Server.Data.Repositories.Flights.Repositories
             try
             {
                 //TraceManager.StartMethodTrace(parameters: "flightEntity: " + JsonConvert.SerializeObject(flightEntity));
-
+                DatabaseContext = new DatabaseContext();
                 var flightToDeleteList = DatabaseContext.Flight
                                         .Where(flight => flight.FlightId.Equals(flightEntity.FlightId)
                                                         || flight.Name.Equals(flightEntity.Name));
@@ -132,6 +133,8 @@ namespace AgioGlobal.Server.Data.Repositories.Flights.Repositories
                 {
                     foreach (var flightToDelete in flightToDeleteList.ToList())
                     {
+                        flightToDelete.DepartureAirport = null;
+                        flightToDelete.DestinationAirport = null;
                         DatabaseContext.Flight.Remove(flightToDelete);
                     }
                     DatabaseContext.SaveChanges();
@@ -154,9 +157,13 @@ namespace AgioGlobal.Server.Data.Repositories.Flights.Repositories
 
                 if (flightToUpdate != null)
                 {
-                    flightToUpdate.DepartureAirport = DatabaseContext.Airport.FirstOrDefault(airport =>airport.Name.Equals(flightEntity.DepartureAirport.Name));
-                    flightToUpdate.DestinationAirport = DatabaseContext.Airport.FirstOrDefault(airport =>airport.Name.Equals(flightEntity.DestinationAirport.Name));
                     flightToUpdate.Name = flightEntity.Name;
+                    
+                    flightToUpdate.DepartureAirport = DatabaseContext.Airport.FirstOrDefault(airport => airport.Name.Equals(flightEntity.DepartureAirport.Name)
+                                                                                                || airport.AirportId.Equals(flightEntity.DepartureAirport.AirportId));
+                    flightToUpdate.DestinationAirport = DatabaseContext.Airport.FirstOrDefault(airport =>airport.Name.Equals(flightEntity.DestinationAirport.Name)
+                                                                                                         || airport.AirportId.Equals(flightEntity.DestinationAirport.AirportId));
+                    
                     DatabaseContext.Flight.AddOrUpdate(flightToUpdate);
                     DatabaseContext.SaveChanges();
                 }

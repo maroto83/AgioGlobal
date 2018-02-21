@@ -33,6 +33,11 @@ namespace AgioGlobal.Server.DistributedServices.WebApi.Flights.Controllers
             this.InitializeServices();
         }
 
+        public FlightController() : base()
+        {
+            InitializeServices();
+        }
+
         private void InitializeServices()
         {
             this.FlightServices = this.DomainIoCContainer.Resolver.Get<IFlightService>();
