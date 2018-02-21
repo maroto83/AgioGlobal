@@ -40,11 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileReaderManager.cs" />
+    <Compile Include="Managers\FileReaderManager.cs" />
     <Compile Include="Helpers\FileReaderHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="FileSamples\file.enc" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="FileSamples\file.txt" />
     <Content Include="FileSamples\file.xml" />

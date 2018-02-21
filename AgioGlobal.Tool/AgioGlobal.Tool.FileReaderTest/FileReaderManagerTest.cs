@@ -1,5 +1,6 @@
 ﻿using System;
 using AgioGlobal.Tool.FileReader;
+using AgioGlobal.Tool.FileReader.Managers;
 using AgioGlobal.Tool.FileReaderTest.TestEnvironment.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -42,6 +43,26 @@ namespace AgioGlobal.Tool.FileReaderTest
         public void ReadXMLFile_WhenNotExistFile_CheckEmptyContent()
         {
             var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.XMLFilePath + "123");
+
+            Assert.AreEqual(fileContent, String.Empty);
+        }
+
+        #endregion
+
+        #region Test for Encrypted File
+
+        [TestMethod]
+        public void ReadEncryptedFile_WhenExistFile_CheckResultOk()
+        {
+            var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.EncryptedFilePath, true);
+
+            Assert.AreEqual(fileContent, ConfigurationHelper.EncryptedText);
+        }
+
+        [TestMethod]
+        public void ReadEncryptedFile_WhenNotExistFile_CheckEmptyContent()
+        {
+            var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.EncryptedFilePath + "123", true);
 
             Assert.AreEqual(fileContent, String.Empty);
         }
