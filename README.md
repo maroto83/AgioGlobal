@@ -9,3 +9,7 @@ The GIT repository consists of the following solutions:
 ** Explanation
 * AgioGlobal.Tool
 ** Explanation
+
+
+
+AgioGlobal.Server.Data.DAL

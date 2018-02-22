@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>My jQuery JSON Web Page</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var urlServer = "https://localhost:50330/";
+
+        function showError(error) {
+            console.log(error);
+        }
+
+        setCurrentCulture = function () {
+
+            var request = { FlightId: 1, Name: "Test" };
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://localhost:50330/api/Flight/Create',
+                data: request
+            }).done(function (data) {
+                console.log(data);
+            }).fail(function (error) {
+                showError(error);
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Web Api is working successfully!</h1>
+
+    <div id="resultDivContainer"></div>
+
+    <button type="button" onclick=" setCurrentCulture() ">TEST</button>
+
+
+</body>
+</html>

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AgioGlobal.Server.Data.Models.Schemas.dbo
 {
@@ -19,8 +16,18 @@ namespace AgioGlobal.Server.Data.Models.Schemas.dbo
         /// <summary>
         /// Flight name
         /// </summary>
-        [MaxLength(100)]
+        [MaxLength(100),Required]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The departure airport
+        /// </summary>
+        public virtual Airport DepartureAirport { get; set; }
+
+        /// <summary>
+        /// The Destination airport
+        /// </summary>
+        public virtual Airport DestinationAirport { get; set; }
 
         /// <summary>
         /// Get the key of the register
