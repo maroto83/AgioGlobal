@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using AgioGlobal.Tool.FileReader.Helpers;
 
@@ -88,6 +87,9 @@ namespace AgioGlobal.Tool.FileReader.Managers
                     case FileReaderHelper.EncryptedExtension:
                         ReadEncryptedFile();
                         break;
+                    case FileReaderHelper.JsonExtension:
+                        ReadJsonFile();
+                        break;
                 }
             }
         }
@@ -125,7 +127,7 @@ namespace AgioGlobal.Tool.FileReader.Managers
         }
 
         /// <summary>  
-        ///  Read a text file  
+        ///  Read a encrypted file  
         /// </summary>  
         /// <returns>If exist the file, return a string with the file content. In otherwise return an empty string</returns>  
         private static void ReadEncryptedFile()
@@ -137,6 +139,23 @@ namespace AgioGlobal.Tool.FileReader.Managers
             {
                 // Read the file
                 FileContent = File.ReadAllText(FilePath);
+            }
+        }
+
+        /// <summary>  
+        ///  Read a encrypted file  
+        /// </summary>  
+        /// <returns>If exist the file, return a string with the file content. In otherwise return an empty string</returns>  
+        private static void ReadJsonFile()
+        {
+            FileContent = string.Empty;
+
+            // Check if exist the file
+            if (File.Exists(FilePath))
+            {
+                // Read the file
+                FileContent = File.ReadAllText(FilePath);
+                FileContent = Newtonsoft.Json.JsonConvert.DeserializeObject(FileContent).ToString();
             }
         }
     }

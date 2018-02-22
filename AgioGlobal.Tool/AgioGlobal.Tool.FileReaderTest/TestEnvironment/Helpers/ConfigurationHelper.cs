@@ -9,6 +9,7 @@ namespace AgioGlobal.Tool.FileReaderTest.TestEnvironment.Helpers
         public static string TextFilePath => BasePath + TxtFileName;
         public static string XMLFilePath => BasePath + XMLFileName;
         public static string EncryptedFilePath => BasePath + EncryptedFileName;
+        public static string JsonFilePath => BasePath + JsonFileName;
 
         #endregion
 
@@ -18,6 +19,7 @@ namespace AgioGlobal.Tool.FileReaderTest.TestEnvironment.Helpers
         private static string TxtFileName => ConfigurationManager.AppSettings["TxtFileName"];
         private static string XMLFileName => ConfigurationManager.AppSettings["XMLFileName"];
         private static string EncryptedFileName => ConfigurationManager.AppSettings["EncryptedFileName"];
+        private static string JsonFileName => ConfigurationManager.AppSettings["JsonFileName"];
 
         #endregion
 
