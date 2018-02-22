@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using AgioGlobal.Tool.FileReader.Helpers;
 
@@ -66,6 +67,14 @@ namespace AgioGlobal.Tool.FileReader.Managers
         {
             if (FileExtension!= null)
             {
+                // If the rol is no Admin and you are trying to read Txt or XML file, we thrown an error
+                if ((FileExtension.Equals(FileReaderHelper.TxtExtension)
+                        || FileExtension.Equals(FileReaderHelper.XMLExtension))
+                    && RolType.Equals(FileReaderHelper.RolType.NoAdmin))
+                {
+                    throw new Exception(string.Format(FileReaderHelper.NoAdminErrorMessage, FilePath));
+                }
+
                 switch (FileExtension)
                 {
                     // Read a text file
@@ -74,15 +83,7 @@ namespace AgioGlobal.Tool.FileReader.Managers
                         break;
                     // Read a XML file
                     case FileReaderHelper.XMLExtension:
-                        // Only the Admin can read the XML file
-                        if (RolType.Equals(FileReaderHelper.RolType.Admin))
-                        {
-                            ReadXMLFile();
-                        }
-                        else
-                        {
-                            throw new Exception(string.Format(FileReaderHelper.NoAdminErrorMessage, FilePath));
-                        }
+                        ReadXMLFile();
                         break;
                     case FileReaderHelper.EncryptedExtension:
                         ReadEncryptedFile();

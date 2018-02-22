@@ -13,7 +13,16 @@ namespace AgioGlobal.Tool.FileReaderTest
         #region Test for Text File
 
         [TestMethod]
-        public void ReadTextFile_WhenExistFile_CheckResultOk()
+        public void ReadTextFile_WhenExistFileAndRolIsAdmin_CheckResultOk()
+        {
+            var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.TextFilePath, rolType:FileReaderHelper.RolType.Admin);
+
+            Assert.AreNotEqual(fileContent, String.Empty);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void ReadTextFile_WhenExistFileAndRolIsNoAdmin_CheckException()
         {
             var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.TextFilePath);
 
