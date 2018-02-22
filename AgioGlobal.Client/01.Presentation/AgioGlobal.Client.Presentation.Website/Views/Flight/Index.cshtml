@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AgioGlobal.Client.Presentation.Website.Flight.Models.FlightModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Flight/Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.FlightId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.FlightId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.FlightId })
+                </td>
+            </tr>
+        }
+    }
+    
+
+</table>
