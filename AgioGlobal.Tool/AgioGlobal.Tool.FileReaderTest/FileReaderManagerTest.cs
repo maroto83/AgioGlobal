@@ -89,13 +89,22 @@ namespace AgioGlobal.Tool.FileReaderTest
         #region Test for Json File
 
         [TestMethod]
-        public void ReadJsonFile_WhenExistFile_CheckResultOk()
+        public void ReadJsonFile_WhenExistFileAndRolIsAdmin_CheckResultOk()
         {
             var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.JsonFilePath, rolType: FileReaderHelper.RolType.Admin);
 
             Assert.AreNotEqual(fileContent, String.Empty);
         }
-        
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void ReadJsonFile_WhenExistFileAndRolIsNoAdmin_CheckResultOk()
+        {
+            var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.JsonFilePath);
+
+            Assert.AreNotEqual(fileContent, String.Empty);
+        }
+
         [TestMethod]
         public void ReadJsonFile_WhenNotExistFile_CheckEmptyContent()
         {

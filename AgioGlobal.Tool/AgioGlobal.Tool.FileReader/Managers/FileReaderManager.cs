@@ -68,7 +68,8 @@ namespace AgioGlobal.Tool.FileReader.Managers
             {
                 // If the rol is no Admin and you are trying to read Txt or XML file, we thrown an error
                 if ((FileExtension.Equals(FileReaderHelper.TxtExtension)
-                        || FileExtension.Equals(FileReaderHelper.XMLExtension))
+                        || FileExtension.Equals(FileReaderHelper.XMLExtension)
+                        || FileExtension.Equals(FileReaderHelper.JsonExtension))
                     && RolType.Equals(FileReaderHelper.RolType.NoAdmin))
                 {
                     throw new Exception(string.Format(FileReaderHelper.NoAdminErrorMessage, FilePath));
