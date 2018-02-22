@@ -85,5 +85,25 @@ namespace AgioGlobal.Tool.FileReaderTest
         }
 
         #endregion
+
+        #region Test for Json File
+
+        [TestMethod]
+        public void ReadJsonFile_WhenExistFile_CheckResultOk()
+        {
+            var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.JsonFilePath, rolType: FileReaderHelper.RolType.Admin);
+
+            Assert.AreNotEqual(fileContent, String.Empty);
+        }
+        
+        [TestMethod]
+        public void ReadJsonFile_WhenNotExistFile_CheckEmptyContent()
+        {
+            var fileContent = FileReaderManager.ReadFile(ConfigurationHelper.JsonFilePath + "123");
+
+            Assert.AreEqual(fileContent, String.Empty);
+        }
+
+        #endregion
     }
 }
